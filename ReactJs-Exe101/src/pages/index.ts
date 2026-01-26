@@ -1,1 +1,1 @@
-export { default as LandingPage } from "./LandingPage";
+export { WorkXLandingPage } from './WorkXLandingPage';

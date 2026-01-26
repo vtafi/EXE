@@ -1,8 +1,8 @@
 import "./index.css";
-import { LandingPage } from "./pages";
+import { WorkXLandingPage } from "./pages";
 
 function App() {
-  return <LandingPage />;
+  return <WorkXLandingPage />;
 }
 
 export default App;
