@@ -4,7 +4,127 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>reactjs</title>
+    <title>WorkX - Cozy Cafe Spaces</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#F97316",
+                foreground: "#FFFFFF",
+              },
+              "background-light": "#DDDDDD",
+              "background-dark": "#111111",
+              "card-light": "#FFFFFF",
+              "card-dark": "#1A1A1A",
+              "deep-umber": "#3D2B1F",
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+              sidebar: {
+                DEFAULT: "hsl(var(--sidebar-background))",
+                foreground: "hsl(var(--sidebar-foreground))",
+                primary: "hsl(var(--sidebar-primary))",
+                "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+                accent: "hsl(var(--sidebar-accent))",
+                "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+                border: "hsl(var(--sidebar-border))",
+                ring: "hsl(var(--sidebar-ring))",
+              },
+              table: {
+                header: "hsl(var(--table-header))",
+                border: "hsl(var(--table-border))",
+                "row-hover": "hsl(var(--table-row-hover))",
+                "row-selected": "hsl(var(--table-row-selected))",
+                "row-stripe": "hsl(var(--table-row-stripe))",
+                "sort-active": "hsl(var(--table-sort-active))",
+              },
+            },
+            fontFamily: {
+              display: ["Anton", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              xl: "1rem",
+              "2xl": "1.5rem",
+              "3xl": "2rem",
+            },
+            keyframes: {
+              "sort-bounce": {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-2px)" },
+              },
+            },
+            animation: {
+              "sort-bounce": "sort-bounce 0.3s ease-in-out",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: #f97316;
+        cursor: pointer;
+        margin-top: -6px;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: #e5e7eb;
+        border-radius: 2px;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
