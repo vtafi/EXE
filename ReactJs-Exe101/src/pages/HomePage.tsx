@@ -2,6 +2,7 @@ import { useState } from "react";
 import { spaces } from "../data/spaces";
 import Navbar from "../components/Navbar";
 import SpaceCard from "../components/SpaceCard";
+import { MorphingText } from "../components/ui/MorphingText";
 
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -34,11 +35,18 @@ const HomePage = () => {
       <main className="relative z-40 flex-grow flex flex-col justify-center items-center text-center px-4 mt-8 md:mt-0">
         {/* Hero Text */}
         <div className="mb-4">
-          <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-2 block">
+          <span className="text-primary font-bold tracking-[0.2em] text-sm uppercase mb-2 block">
             Cafe Meeting Spaces · Da Nang
           </span>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-display uppercase tracking-tight leading-none text-black drop-shadow-sm">
-            Book Your Venue
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display uppercase tracking-tight leading-none drop-shadow-sm">
+            <span className="text-[#3D2B1F]">Workspace</span>{" "}
+            <MorphingText
+              words={["Rental", "Booking", "Meeting", "Event", "Space"]}
+              className="bg-gradient-to-r from-orange-400 via-rose-500 to-purple-600 bg-clip-text text-transparent"
+              interval={2500}
+              animationDuration={0.45}
+            />{" "}
+            <span className="text-[#3D2B1F]">eXperience</span>
           </h1>
         </div>
 
@@ -62,7 +70,7 @@ const HomePage = () => {
         </div>
 
         {/* Cards Carousel */}
-        <div className="w-full max-w-[95%] xl:max-w-7xl relative">
+        <div className="w-full max-w-[98%] xl:max-w-[1400px] relative">
           <button
             onClick={prev}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-50 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-900 hover:bg-primary hover:text-white transition-colors"
@@ -76,7 +84,7 @@ const HomePage = () => {
             <span className="material-symbols-outlined">chevron_right</span>
           </button>
 
-          <div className="flex items-center justify-center gap-4 pb-10 overflow-hidden">
+          <div className="flex items-center justify-center gap-6 pb-10 overflow-hidden">
             {visibleSpaces.map(({ space, isActive }, idx) => (
               <div
                 key={`${space.id}-${idx}`}
@@ -104,6 +112,14 @@ const HomePage = () => {
                 }`}
               />
             ))}
+          </div>
+          {/* Horizontal divider */}
+          <div className="mt-6 flex items-center gap-4 px-2">
+            <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-black/20 to-transparent" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30">
+              WorkX · Da Nang
+            </span>
+            <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-black/20 to-transparent" />
           </div>
         </div>
       </main>

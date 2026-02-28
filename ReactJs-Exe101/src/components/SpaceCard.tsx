@@ -13,8 +13,8 @@ const SpaceCard = ({ space, isActive }: SpaceCardProps) => {
   const featured = isActive ?? false;
 
   const widthClass = featured
-    ? "w-[320px] md:w-[420px]"
-    : "w-[280px] md:w-[360px]";
+    ? "w-[380px] md:w-[520px]"
+    : "w-[300px] md:w-[420px]";
 
   const handleBookNow = () => {
     navigate(`/space/${id}`);
@@ -22,7 +22,7 @@ const SpaceCard = ({ space, isActive }: SpaceCardProps) => {
 
   return (
     <div
-      className={`snap-center shrink-0 ${widthClass} h-[280px] md:h-[320px] rounded-2xl overflow-hidden relative group cursor-pointer shadow-xl ${
+      className={`snap-center shrink-0 ${widthClass} h-[320px] md:h-[380px] rounded-2xl overflow-hidden relative group cursor-pointer shadow-xl ${
         featured ? "shadow-2xl ring-2 ring-primary" : ""
       }`}
       onClick={handleBookNow}
@@ -46,8 +46,8 @@ const SpaceCard = ({ space, isActive }: SpaceCardProps) => {
       {/* Card Content */}
       <div className="absolute bottom-0 left-0 w-full p-6 text-left">
         <h3
-          className={`text-white font-display uppercase mb-2 ${
-            featured ? "text-3xl" : "text-2xl"
+          className={`text-primary font-display uppercase mb-2 drop-shadow-md ${
+            featured ? "text-4xl" : "text-3xl"
           }`}
         >
           {name}
