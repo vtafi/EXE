@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { spaces } from "../data/spaces";
 import Navbar from "../components/Navbar";
@@ -5,6 +6,15 @@ import Navbar from "../components/Navbar";
 const SpaceDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
   const space = spaces.find((s) => s.id === id);
 
   if (!space) {
@@ -33,21 +43,21 @@ const SpaceDetailPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-grow px-4 md:px-8 lg:px-12 pb-12 w-full max-w-[1920px] mx-auto">
+      <main className="flex-grow px-4 md:px-6 lg:px-10 pb-8 w-full max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-8 pt-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-2">
+        <header className="mb-5 pt-3">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-2">
             <div>
-              <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-2 block">
+              <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-1 block">
                 {space.location}
               </span>
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-display uppercase tracking-tight leading-[0.85] text-black drop-shadow-sm">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display uppercase tracking-tight leading-tight text-black drop-shadow-sm">
                 {space.name}
               </h1>
             </div>
-            <div className="flex items-center gap-2 mb-2 md:mb-4">
+            <div className="flex items-center gap-2 mb-1 md:mb-2">
               <span className="flex items-center gap-1 bg-black text-white px-3 py-1 rounded-full text-xs font-bold uppercase">
-                <span className="material-symbols-outlined text-[14px] text-primary">
+                <span className="material-symbols-outlined text-[13px] text-primary">
                   star
                 </span>
                 {space.rating} ({space.reviewCount})
@@ -66,27 +76,36 @@ const SpaceDetailPage = () => {
         </header>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
           {/* Left: Images */}
-          <div className="lg:col-span-8 flex flex-col gap-4">
-            <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl relative group">
+          <div className="lg:col-span-8 flex flex-col gap-3">
+            {/* Main image */}
+            <div
+              onClick={() => setLightbox(space.image)}
+              className="w-full rounded-2xl overflow-hidden shadow-lg relative group cursor-zoom-in"
+            >
               <img
                 alt={space.imageAlt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                 src={space.image}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60" />
-              <button className="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-lg hover:bg-white transition-colors flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">
-                  grid_view
-                </span>
+              <button
+                onClick={(e) => { e.stopPropagation(); setLightbox(space.image); }}
+                className="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-black px-3 py-1.5 rounded-full text-xs font-bold uppercase shadow-md hover:bg-white transition-colors flex items-center gap-1.5"
+              >
+                <span className="material-symbols-outlined text-sm">grid_view</span>
                 View Gallery
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 h-[160px] md:h-[200px]">
+            {/* Thumbnail grid */}
+            <div className="grid grid-cols-3 gap-3 h-[120px] md:h-[160px]">
               {space.galleryImages.slice(0, 2).map((img, i) => (
-                <div key={i} className="rounded-2xl overflow-hidden shadow-md">
+                <div
+                  key={i}
+                  onClick={() => setLightbox(img.src)}
+                  className="rounded-xl overflow-hidden shadow-md cursor-zoom-in"
+                >
                   <img
                     alt={img.alt}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
@@ -95,16 +114,17 @@ const SpaceDetailPage = () => {
                 </div>
               ))}
               {space.galleryImages[2] && (
-                <div className="rounded-2xl overflow-hidden shadow-md relative">
+                <div
+                  onClick={() => setLightbox(space.galleryImages[2].src)}
+                  className="rounded-xl overflow-hidden shadow-md relative cursor-zoom-in"
+                >
                   <img
                     alt={space.galleryImages[2].alt}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     src={space.galleryImages[2].src}
                   />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">
-                      +8 More
-                    </span>
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center pointer-events-none">
+                    <span className="text-white font-bold text-base">+8 More</span>
                   </div>
                 </div>
               )}
@@ -112,54 +132,54 @@ const SpaceDetailPage = () => {
           </div>
 
           {/* Right: Booking Panel */}
-          <div className="lg:col-span-4 flex flex-col h-full">
-            <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full flex flex-col sticky top-8">
-              <h2 className="text-2xl font-display uppercase text-black mb-6">
+          <div className="lg:col-span-4 flex flex-col">
+            <div className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100 flex flex-col sticky top-5">
+              <h2 className="text-lg font-display uppercase text-black mb-4">
                 Space Info
               </h2>
 
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-3 gap-2 mb-5">
                 {space.amenities.map((amenity, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-xl border border-gray-100 text-center gap-2 group hover:border-primary/50 transition-colors"
+                    className="flex flex-col items-center justify-center p-2.5 bg-gray-50 rounded-xl border border-gray-100 text-center gap-1.5 group hover:border-primary/50 transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                      <span className="material-symbols-outlined">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined text-[18px]">
                         {amenity.icon}
                       </span>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-gray-800">
+                    <span className="text-[9px] font-bold uppercase tracking-wide text-gray-700 leading-tight">
                       {amenity.label}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="prose prose-sm mb-8">
-                <h3 className="text-sm font-bold uppercase text-gray-400 tracking-widest mb-2">
+              <div className="mb-5">
+                <h3 className="text-xs font-bold uppercase text-gray-400 tracking-widest mb-1.5">
                   About
                 </h3>
-                <p className="text-gray-800 text-base leading-relaxed font-normal">
+                <p className="text-gray-700 text-sm leading-relaxed">
                   {space.description}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 mt-auto">
-                <div className="flex items-center justify-between text-sm font-medium text-gray-600 mb-2">
+              <div className="flex flex-col gap-2 mt-auto">
+                <div className="flex items-center justify-between text-xs font-medium text-gray-500 mb-1">
                   <span>Capacity: {space.capacity}</span>
                   <span>•</span>
                   <span>{space.hours}</span>
                 </div>
                 <button
                   onClick={() => navigate(`/book/${space.id}`)}
-                  className="w-full py-4 bg-primary hover:bg-orange-600 text-white font-bold text-lg rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wide flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-primary hover:bg-orange-600 text-white font-bold text-sm rounded-xl shadow-md shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wide flex items-center justify-center gap-2"
                 >
                   <span>Book This Space</span>
                   <span className="w-1 h-1 bg-white rounded-full mx-1" />
                   <span>{space.price}/hr</span>
                 </button>
-                <p className="text-center text-xs text-gray-400 mt-2">
+                <p className="text-center text-[11px] text-gray-400 mt-1">
                   Free cancellation up to 2 hours before booking.
                 </p>
               </div>
@@ -171,6 +191,30 @@ const SpaceDetailPage = () => {
       {/* Side decorators */}
       <div className="fixed left-8 bottom-12 h-20 w-[1px] bg-primary hidden md:block z-30" />
       <div className="fixed left-8 bottom-36 h-10 w-[1px] bg-gray-900 hidden md:block z-30 opacity-30" />
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+          onClick={() => setLightbox(null)}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+          >
+            <span className="material-symbols-outlined">close</span>
+          </button>
+
+          {/* Image */}
+          <img
+            src={lightbox}
+            alt="Full size"
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain"
+          />
+        </div>
+      )}
     </div>
   );
 };
