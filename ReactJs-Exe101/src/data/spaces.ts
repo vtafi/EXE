@@ -41,7 +41,7 @@ export const spaces: Space[] = [
     capacity: "30 People",
     hours: "07:00 AM - 09:00 PM",
     description:
-      "A lush, plant-filled retreat perfect for focused work. Natural light streams through floor-to-ceiling windows, creating an inspiring environment surrounded by greenery. Enjoy complimentary artisanal coffee and a calm, rejuvenating atmosphere.",
+      "A garden-filled cafe with floor-to-ceiling windows and natural light. The private event room fits up to 30 people and comes with a projector and whiteboard — ideal for workshops, team meetings, and creative brainstorming sessions.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDVeUg154bs0ZZpVGPaKbTBrrzbY_ylbj2_wjZ_SrCwr1ybzFkYNCZSzUJ7XoFCa0FS4d_MU-DKhkaL6T5u6YcFr0MR3Hrh6apMdZqA1M5fsSLqbRQr3XUMYhctQEuAkyQS5bcZt0ga3jxbj77sWUqMPmkwgvNBncHq6GbRM-il4sbaw0nogQ8nLLwZb72Vq6-ZxwBAPQPAIge4LUVXrpkXJtki4pYEPBfIvl0kGi4i2QeNqA0VXNfyEVbwBeHeLx-TQyaVflAXIUyE",
     imageAlt: "Greenhouse workspace with plants",
@@ -80,7 +80,7 @@ export const spaces: Space[] = [
     capacity: "45 People",
     hours: "08:00 AM - 10:00 PM",
     description:
-      "Located in the heart of Da Nang, Urban Roastery offers a seamless blend of industrial chic and modern comfort. Perfect for digital nomads and creative teams, our space features ergonomic seating, abundant natural light, and a dedicated quiet zone for deep work. Enjoy our signature artisanal coffee while you work.",
+      "Located in the heart of Da Nang, Urban Roastery offers a premium private meeting space for up to 45 people. Equipped with a full sound system, projector, and high-speed Wi-Fi — perfectly suited for workshops, training sessions, and corporate group meetings.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuA30ru_rkkQ-Hcgw9yGfazi3L43Pe95TPHQzHEO1QHB2dV7E5x3d2SpiYTIXIZQ1Zq9Nx2FHUNz7-YfwnBkfpkRLtb41ragV6CZtAAHocY-fFru52duuwH94N8F-5VN5UsR3sHAOywH7UAJV-am-e4UxbMiSITxRn1Tnuy8-_olFqjqHm30oearaAW6CgwXUPRFAwpjthsHV-UdD_fn6iVZo76TPZJE6iYWSEB4XpLGzyVOzlsUQAGVA27eKcBiqmpukDlqzyxfz3ES",
     imageAlt: "Urban Roastery workspace",
@@ -121,7 +121,7 @@ export const spaces: Space[] = [
     capacity: "20 People",
     hours: "07:00 AM - 11:00 PM",
     description:
-      "A serene, minimal environment engineered for deep focus. Ergonomic furniture, near-silence acoustics, and clean lines create an ideal space for serious work. Ideal for solo workers and small focused teams.",
+      "A sleek, soundproofed venue designed for focused group sessions. Clean acoustics, a built-in projector, and ergonomic group seating make it ideal for private training, interviews, and small team workshops up to 20 people.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBLL6g3M3LpqIJiGY8m9Oasp-zfpRESLmv6WwvXfp9cFW-Vzu_HJwJlGqn6Ro3vw6jepzizhgKs_zJ7QDr0m2h6dqi3jw0930Wr5p4kp-FH9Vu4onXgXSPBj-wR2NkHfzQHj7Se2Jk7KPZtjPobPcba_eFwBZDTPCdOg53C81r0pz7JVaekWablEWyJD_nhLRoHvKNW3SSeajDhLXAqajthwmRcPflzEvcbaRGscm6WjJOJhCt0WQgy4S7VbSDSwJYiDykeFV3-f5Rb",
     imageAlt: "Minimalist wooden pod workspace",
@@ -160,7 +160,7 @@ export const spaces: Space[] = [
     capacity: "15 People",
     hours: "09:00 AM - 09:00 PM",
     description:
-      "Tucked away in a peaceful corner, Library Nook provides an intimate, distraction-free workspace surrounded by curated books and warm lighting. The perfect spot for research, writing, or any work that demands complete concentration.",
+      "Tucked away in a quiet corner, Library Nook offers an intimate venue for small-group training and structured workshops. Warm lighting, low noise, and a whiteboard make it ideal for groups of up to 15 needing deep focus.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAakK_M44SIVb87EFzODfHNeOBhyRBvYUQJe3-Ut72DdqPj2jhyF3qc7o-F8RyvwXvv5EBvXNgqU1MmXxr09-sriGMSKncrwVoMkpT_h2NQajpFNBZDhCJb0MSptmvKD-vTPCXTywNdwpKn7X44SmQus1q24i-7Nam3BLKIliUEoHqQnJ2V5sllgC59hqaM60vSkDqUTtCN9keyRZ-Ub_jp2bW02dMRA2cr1PCqRkuzBtbBWVev90SPjqSqI1zNWTMbmtQbYBSd-Xck",
     imageAlt: "Quiet library corner",
@@ -199,7 +199,7 @@ export const spaces: Space[] = [
     capacity: "35 People",
     hours: "06:30 AM - 11:00 PM",
     description:
-      "A cozy beachside cafe with warm lighting and a laid-back vibe. The Hideout Cafe is the perfect spot for remote workers who love the sound of waves while they work. Fast WiFi, great coffee, and power outlets at every table.",
+      "A beachside cafe steps from My Khe Beach with a private semi-open meeting area for up to 35 people. Fast Wi-Fi, a portable projector, and power outlets at every seat — perfect for relaxed workshops and offsite team sessions.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuA-9VBH3gDBYQQ2lge0mN0G-DihmCj7mS56ZZ62JcbmeeeuyfTmCEj1QALli9rexYKNce-DrM2RkTzdxWgtUu3xFUb016ednmJ7DlUpthfndWNjUSiSxMTBbAV7XUrNkpni7t4RA2NCAu87-PzHcqQDL0WpanMnzeckswYMETT-0f5MdU4medqDdj9KnOm4j94O5WTebIbC0wocj5nYV8TKciW1pe_-CKBaxlR1kasfLQb3aJ6HRq2Z6cgocKIeckHf5K8Vs_bO9aIB",
     imageAlt: "Modern cafe interior with warm lighting",
@@ -239,7 +239,7 @@ export const spaces: Space[] = [
     capacity: "50 People",
     hours: "07:00 AM - 10:00 PM",
     description:
-      "Designed specifically for digital nomads and remote teams, Nomad Space offers dedicated meeting rooms, specialty coffee, and a vibrant community of professionals. High-speed internet and ergonomic workstations keep you productive all day.",
+      "Designed for groups and remote teams, Nomad Space offers two dedicated meeting rooms, a projector, sound system, and specialty coffee. With capacity for up to 50 people, it's a go-to venue for team training and community workshops.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDqS_UKjypZJpjCH_cAN87Qa4oT1_W74A6hdRUzFWw_8Vl4dhFtf2NzKFpJDqRaBoutKYMrc38uB2ZPdI7N-etw7fk83Err-W791crkpmTqvaI7gwG70S02Lm6eU7h5A0qsAzqNQV_2UBH20NgqEikVwvsoWA4Aq-MehY54ca-GSLIAdRkUD1esHTUX0egg2bd6glxf19ZMgGLqJDVh8Kq-fP5ocLcL1WwAEEYkNTZDrNkPDTFB0cy9UlpE39YE7GFRnjeERl9-n5AM",
     imageAlt: "Bright workspace with large windows",
@@ -279,7 +279,7 @@ export const spaces: Space[] = [
     capacity: "40 People",
     hours: "08:00 AM - 09:00 PM",
     description:
-      "Zenith Hub offers a tranquil garden-view workspace at an affordable price. With open-air seating options, lush greenery, and a calm ambiance, it's an ideal retreat from the buzzing city. Perfect for freelancers and students alike.",
+      "Zenith Hub offers an affordable garden-view meeting space with open-air and indoor seating for up to 40 people. Calm ambiance, a whiteboard, and basic AV setup make it a budget-friendly choice for workshops and study groups.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC3MAqlSop1NELijS7QSBdRfA_OdTvNpi_D44qxaDB4B1jhuIsutuSWTkjSMaQekRgUAPTr7VQzS2e1_K0oL70fIE8P__4_QlUH6SzhpIjkVOWvDVbNCpFq2KDtkNs4RuPbnZC01afoS4WhFZjIjH4U1Uxr_c_FckkJ1cqnOuC6dCnavTCwkUIx7CQ8fujNQmlu8aq9HC4-y78u4_539ZMrP8twFWZvzEJTKJEqXbHife_DAHkJV613-CRgsF6D1ClY3Qr5K-1x-bC_",
     imageAlt: "Minimalist office space with garden view",

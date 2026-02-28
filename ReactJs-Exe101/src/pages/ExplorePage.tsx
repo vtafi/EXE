@@ -14,8 +14,8 @@ const exploreSpaces = [
     district: "Hai Chau District",
     price: "45k",
     description:
-      "A vibrant space combining the aroma of fresh coffee with serious productivity zones.",
-    tags: ["High-Speed Wifi", "Printer", "Coffee"],
+      "A vibrant cafe with a private meeting room — ideal for workshops and collaborative group sessions.",
+    tags: ["Projector", "Sound System", "Coffee"],
   },
   {
     id: "the-greenhouse",
@@ -28,8 +28,8 @@ const exploreSpaces = [
     district: "Son Tra District",
     price: "60k",
     description:
-      "Immerse yourself in nature while you work. Natural light and oxygen-rich environment.",
-    tags: ["Outdoor Terrace", "Quiet", "Pet Friendly"],
+      "A garden-view cafe with natural light and group seating — great for creative workshops and team training.",
+    tags: ["Projector", "Group Seating", "Outdoor Area"],
   },
   {
     id: "minimalist-pod",
@@ -42,8 +42,8 @@ const exploreSpaces = [
     district: "Thanh Khe District",
     price: "80k",
     description:
-      "Ultra-private soundproof pods for focus work and confidential calls.",
-    tags: ["Soundproof", "Ergonomic", "24/7 Access"],
+      "Soundproofed private rooms designed for confidential team meetings and focused training sessions.",
+    tags: ["Soundproof", "Projector", "Whiteboard"],
   },
   {
     id: "library-nook",
@@ -56,8 +56,8 @@ const exploreSpaces = [
     district: "Hai Chau District",
     price: "30k",
     description:
-      "Classic studious atmosphere. Perfect for reading, writing, and research.",
-    tags: ["Silence", "Books", "Tea"],
+      "A calm, well-lit venue perfect for structured small-group training sessions and focused workshops.",
+    tags: ["Whiteboard", "Sound System", "Refreshments"],
   },
 ];
 
@@ -82,13 +82,13 @@ const ExplorePage = () => {
                 Da Nang, Vietnam
               </span>
               <h1 className="text-5xl md:text-7xl font-display font-bold text-[#3D2B1F] uppercase leading-tight mb-2">
-                Find Your Flow
+                Find Your Venue
                 <br />
                 In Da Nang
               </h1>
               <p className="text-lg text-gray-600 font-medium flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                12 spaces available today
+                12 meeting venues available today
               </p>
             </div>
 
@@ -122,7 +122,7 @@ const ExplorePage = () => {
                   <span className="material-symbols-outlined text-primary">
                     tune
                   </span>
-                  Filter Workspaces
+                  Filter Venues
                 </h3>
               </div>
 
@@ -166,7 +166,7 @@ const ExplorePage = () => {
                     Capacity
                   </h4>
                   <div className="space-y-2.5">
-                    {["1-5 people", "6-15 people", "20-50+ people"].map(
+                    {["2–10 people", "11–30 people", "31–100 people"].map(
                       (cap, i) => (
                         <label
                           key={cap}
@@ -197,10 +197,10 @@ const ExplorePage = () => {
                   </h4>
                   <div className="space-y-2.5">
                     {[
-                      { label: "Projector", checked: false },
+                      { label: "Projector", checked: true },
                       { label: "Whiteboard", checked: true },
-                      { label: "Quiet Zone", checked: true },
-                      { label: "Ergonomic Chairs", checked: false },
+                      { label: "Sound System", checked: false },
+                      { label: "Breakout Room", checked: false },
                     ].map((item) => (
                       <label
                         key={item.label}
@@ -321,7 +321,7 @@ const ExplorePage = () => {
                 add_location_alt
               </span>
               <h3 className="text-xl font-display uppercase text-gray-400 group-hover:text-[#3D2B1F] transition-colors">
-                View All 12 Spaces
+                View All 12 Venues
               </h3>
             </div>
           </div>

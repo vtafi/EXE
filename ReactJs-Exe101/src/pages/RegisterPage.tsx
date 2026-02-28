@@ -42,7 +42,7 @@ const RegisterPage = () => {
       {/* Main */}
       <main className="relative z-10 w-full flex flex-col items-center justify-start pt-10 pb-20 px-4 min-h-[calc(100vh-160px)]">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-black uppercase tracking-tight text-center mb-10 drop-shadow-sm">
-          Join The Collective
+          Join WorkX
         </h1>
 
         {/* Card */}
@@ -52,7 +52,7 @@ const RegisterPage = () => {
               Create your account
             </h2>
             <p className="text-gray-500 text-sm">
-              Unlock the best workspaces in Da Nang.
+              Find and book the best meeting venues and workshop spaces in Da Nang.
             </p>
           </div>
 

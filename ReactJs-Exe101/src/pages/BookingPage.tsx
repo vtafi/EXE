@@ -113,7 +113,7 @@ const BookingPage = () => {
             Back to {space.name}
           </button>
           <h1 className="text-5xl md:text-7xl font-display uppercase tracking-tight leading-none text-black">
-            Reserve Your Spot
+            Book Your Venue
           </h1>
         </div>
 

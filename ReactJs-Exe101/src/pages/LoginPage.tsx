@@ -49,7 +49,7 @@ const LoginPage = () => {
             <h2 className="text-2xl font-bold text-[#3D2B1F] mb-2">
               Sign in to your account
             </h2>
-            <p className="text-gray-500 text-sm">Pick up where you left off.</p>
+            <p className="text-gray-500 text-sm">Continue booking meeting spaces in Da Nang.</p>
           </div>
 
           {/* Form */}

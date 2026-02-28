@@ -12,8 +12,8 @@ const Navbar = () => {
 
   return (
     <nav className="relative z-50 flex items-center justify-between px-8 py-6 w-full">
-      {/* Left: Menu + Logo */}
-      <div className="flex items-center gap-6">
+      {/* Left: Logo — flex-1 to balance right side */}
+      <div className="flex-1 flex items-center">
         <a
           className="flex items-center gap-1 cursor-pointer"
           onClick={(e) => {
@@ -31,7 +31,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Center: Nav links */}
+      {/* Center: Nav links — truly centered */}
       <div className="hidden md:flex items-center gap-12 font-medium text-sm tracking-wide">
         {navLinks.map((link) => {
           const isActive = location.pathname === link.path;
@@ -55,8 +55,8 @@ const Navbar = () => {
         })}
       </div>
 
-      {/* Right: Actions */}
-      <div className="flex items-center gap-6">
+      {/* Right: Actions — flex-1 to balance left side */}
+      <div className="flex-1 flex items-center justify-end gap-6">
         <button
           onClick={() => navigate("/my-bookings")}
           className={`hidden md:flex items-center gap-2 px-4 py-2 rounded-full border transition-colors shadow-sm ${

@@ -3,16 +3,18 @@ import type { Space } from "../data/spaces";
 
 interface SpaceCardProps {
   space: Space;
+  isActive?: boolean;
 }
 
-const SpaceCard = ({ space }: SpaceCardProps) => {
+const SpaceCard = ({ space, isActive }: SpaceCardProps) => {
   const navigate = useNavigate();
-  const { id, name, image, imageAlt, features, price, popular, featured } =
-    space;
+  const { id, name, image, imageAlt, features, price, popular } = space;
+
+  const featured = isActive ?? false;
 
   const widthClass = featured
-    ? "w-[320px] md:w-[450px]"
-    : "w-[320px] md:w-[400px]";
+    ? "w-[320px] md:w-[420px]"
+    : "w-[280px] md:w-[360px]";
 
   const handleBookNow = () => {
     navigate(`/space/${id}`);

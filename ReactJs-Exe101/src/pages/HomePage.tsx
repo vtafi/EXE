@@ -1,8 +1,20 @@
+import { useState } from "react";
 import { spaces } from "../data/spaces";
 import Navbar from "../components/Navbar";
 import SpaceCard from "../components/SpaceCard";
 
 const HomePage = () => {
+  const [activeIndex, setActiveIndex] = useState(1);
+  const n = spaces.length;
+
+  const prev = () => setActiveIndex((i) => (i - 1 + n) % n);
+  const next = () => setActiveIndex((i) => (i + 1) % n);
+
+  const visibleSpaces = [-1, 0, 1].map((offset) => ({
+    space: spaces[(activeIndex + offset + n) % n],
+    isActive: offset === 0,
+  }));
+
   return (
     <div className="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col overflow-hidden relative">
       {/* Background Image */}
@@ -23,17 +35,17 @@ const HomePage = () => {
         {/* Hero Text */}
         <div className="mb-4">
           <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-2 block">
-            Premium Workspaces
+            Cafe Meeting Spaces · Da Nang
           </span>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-display uppercase tracking-tight leading-none text-black drop-shadow-sm">
-            Cozy Cafe Spaces
+            Book Your Venue
           </h1>
         </div>
 
         <p className="max-w-2xl text-gray-800 text-sm md:text-base mb-10 leading-relaxed font-medium">
-          Curated spaces designed for deep work and collaboration. High-speed
+          Connect with cafes offering meeting rooms and private event spaces in Da Nang.
           <br className="hidden md:block" />
-          wifi, artisan coffee, and silence included.
+          Perfect for workshops, team meetings, and short-term training — up to 100 people.
         </p>
 
         {/* Filter */}
@@ -42,7 +54,7 @@ const HomePage = () => {
             <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">
               Filter By:
             </span>
-            <span className="font-bold text-sm text-black">All Spaces</span>
+            <span className="font-bold text-sm text-black">All Venues</span>
             <span className="material-symbols-outlined text-sm text-gray-400">
               expand_more
             </span>
@@ -51,16 +63,46 @@ const HomePage = () => {
 
         {/* Cards Carousel */}
         <div className="w-full max-w-[95%] xl:max-w-7xl relative">
-          <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-50 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-900 hover:bg-primary hover:text-white transition-colors">
+          <button
+            onClick={prev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-50 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-900 hover:bg-primary hover:text-white transition-colors"
+          >
             <span className="material-symbols-outlined">chevron_left</span>
           </button>
-          <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-50 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-900 hover:bg-primary hover:text-white transition-colors">
+          <button
+            onClick={next}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-50 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-900 hover:bg-primary hover:text-white transition-colors"
+          >
             <span className="material-symbols-outlined">chevron_right</span>
           </button>
 
-          <div className="flex gap-6 overflow-x-auto no-scrollbar pb-10 px-4 snap-x snap-mandatory">
-            {spaces.map((space) => (
-              <SpaceCard key={space.id} space={space} />
+          <div className="flex items-center justify-center gap-4 pb-10 overflow-hidden">
+            {visibleSpaces.map(({ space, isActive }, idx) => (
+              <div
+                key={`${space.id}-${idx}`}
+                className={`transition-all duration-500 ${
+                  isActive
+                    ? "scale-100 z-10 opacity-100"
+                    : "scale-90 opacity-70 hover:opacity-90"
+                }`}
+              >
+                <SpaceCard space={space} isActive={isActive} />
+              </div>
+            ))}
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-2">
+            {spaces.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === activeIndex
+                    ? "bg-primary w-6 h-2"
+                    : "bg-gray-400/50 w-2 h-2 hover:bg-gray-500"
+                }`}
+              />
             ))}
           </div>
         </div>
@@ -73,10 +115,10 @@ const HomePage = () => {
         </div>
         <div className="flex gap-8 absolute left-1/2 -translate-x-1/2 bottom-6">
           <a className="text-primary border-b-2 border-primary pb-1" href="#">
-            Discover
+            Explore
           </a>
           <a className="hover:text-primary transition-colors pb-1" href="#">
-            Map
+            Locations
           </a>
         </div>
         <div className="text-right">
